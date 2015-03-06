@@ -1,12 +1,14 @@
 package UI.Common;
 
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.JSplitPane;
 
-public class View extends JPanel implements ViewIF {
+public abstract class View extends JPanel implements ViewIF {
 	
     private String name;
     private JComponent panel;
@@ -38,15 +40,16 @@ public class View extends JPanel implements ViewIF {
     public void reload() {}
     //Default behaviour of an alert
     public void alert(String message) {
-    	System.out.println("Alert : "+message);
+    	//System.out.println("Alert : "+message);
+    	JOptionPane.showMessageDialog(Frame.getFrame(),message,"Alert",JOptionPane.WARNING_MESSAGE);
     }
     //Default behaviour of a confirm
-    public void confirm(String message) {
-    	
+    public int confirm(String message) {
+    	return JOptionPane.showConfirmDialog(Frame.getFrame(),message,"Confirmation",JOptionPane.YES_NO_OPTION);
     }
     //Default behaviour of a prompt
-    public void prompt(String message) {
-    	
+    public String prompt(String message) {
+    	return JOptionPane.showInputDialog(Frame.getFrame(),message,"Prompt",JOptionPane.QUESTION_MESSAGE);
     }
     //Default behaviour of a log
     public void log(String message) {
@@ -57,7 +60,6 @@ public class View extends JPanel implements ViewIF {
     	System.err.println("Error : "+message);
     }
 
-    
     public String getName() {
         return this.name;
     }
