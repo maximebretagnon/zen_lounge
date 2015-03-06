@@ -3,6 +3,7 @@ package BL.Managers;
 import java.sql.SQLException;
 
 import BL.Others.Utilitary;
+import Data.Datas.MySQLUserData;
 import Data.Datas.UserData;
 import UI.Common.ViewIF;
 
@@ -13,14 +14,14 @@ public class UserManager {
     public ViewIF viewIF;
     
     public UserManager(ViewIF viewIF){
-    	userData = new UserData();
+    	userData = null;
     	this.viewIF = viewIF;
     }
 
     public String handleLogin(String login, String pwd) {
     	
     	try {
-			userData = UserData.getUser(login,pwd);
+			userData = new MySQLUserData().getUser(login,pwd);
 			
 			if(userData == null)
 				return "Informations incorrectes. Veuillez réessayer";

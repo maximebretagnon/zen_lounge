@@ -1,18 +1,15 @@
 package Data.Datas;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Data.Database;
-
-public class UserData {
+public abstract class UserData {
 	
-	private String firstName;
-	private String lastName;
-	private String phone;
-	private String mail;
-	private String address;
-	private String login;
-	private String pwd;
+	protected String firstName;
+	protected String lastName;
+	protected String phone;
+	protected String mail;
+	protected String address;
+	protected String login;
+	protected String pwd;
 	
     public UserData(){
     	this.firstName="";
@@ -80,31 +77,5 @@ public class UserData {
 		this.pwd = pwd;
 	}
 
-	public static UserData getUser(String login, String pwd) throws SQLException {
-		
-    	ResultSet result = Database.getDatabase().getUser(login,pwd);
-    	
-    	//If the result is empty
-    	if(!result.next())
-    		return null;
-    	//else
-    	
-    	//Ouverture de session
-    	UserData data = new UserData();
-    	
-    	result.beforeFirst();
-    	while ( result.next() ) {
-			data.firstName = result.getString("firstName");
-			data.lastName = result.getString("lastName");
-			data.phone = result.getString("phone");
-			data.mail = result.getString("mail");
-			data.address = result.getString("address");
-			data.login = result.getString("login");
-			data.pwd = result.getString("pwd");
-		}
-	    /* On ferme le ResultSet */
-	    result.close();
-
-    	return data;
-	}
+	public abstract UserData getUser(String login, String pwd) throws SQLException;
 }
