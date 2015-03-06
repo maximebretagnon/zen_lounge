@@ -3,6 +3,8 @@ package UI.Views;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.Action;
 import javax.swing.JButton;
@@ -18,7 +20,7 @@ import UI.Common.View;
 
 import javax.swing.SpringLayout;
 
-public class LoginView extends View implements ActionListener{
+public class LoginView extends View implements ActionListener, KeyListener{
 	
     private JLabel loginLabel;
     private JLabel pwdLabel;
@@ -48,6 +50,8 @@ public class LoginView extends View implements ActionListener{
     	loginButton = new JButton(Action.NAME);
     	loginButton.setText("Connect");
     	loginButton.addActionListener(this);
+    	
+    	pwdField.addKeyListener(this);
     	
     	subscribeButton = new JButton(Action.NAME);
     	subscribeButton.setText("Subscribe");
@@ -108,5 +112,24 @@ public class LoginView extends View implements ActionListener{
 			login();
 		else if(e.getActionCommand().equals(subscribeButton.getActionCommand()))
 			subscribe();
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode() == KeyEvent.VK_ENTER)
+			login();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
