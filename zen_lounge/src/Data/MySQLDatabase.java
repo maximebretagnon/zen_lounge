@@ -54,7 +54,7 @@ public class MySQLDatabase extends Database
 	            /* Si une erreur survient lors de la fermeture, il suffit de l'ignorer. */
 	        }
     }
-    private ResultSet selectRequest(String request) {
+    public ResultSet selectRequest(String request) {
     	open();
     	
     	/* Exécution d'une requête de lecture */
@@ -70,7 +70,7 @@ public class MySQLDatabase extends Database
     	
     	return resultat;
     }
-    private int insertRequest(String request) {
+    public int insertRequest(String request) {
     	
     	int status = 0;
     	
@@ -88,11 +88,5 @@ public class MySQLDatabase extends Database
 			/* Gérer les éventuelles erreurs ici */
 		}
     	return status;
-    }
-    
-    ////ZenLounge Database methods////
-    public ResultSet getUser(String login,String pwd){
-    	String request = "SELECT firstName,lastName,phone,mail,address,login,pwd FROM User where login='"+login+"' and pwd='"+pwd+"'";
-    	return selectRequest(request);
     }
 }

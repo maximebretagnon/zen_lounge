@@ -15,7 +15,4 @@ public abstract class Database
 	////Standard Database methods////
     public abstract void open();
     public abstract void close();
-    
-    ////ZenLougne database methods////
-    public abstract ResultSet getUser(String login,String pwd);
 }

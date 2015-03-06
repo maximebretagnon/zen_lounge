@@ -17,7 +17,9 @@ public class MySQLUserData extends UserData{
 
 	public UserData getUser(String login, String pwd) throws SQLException {
 		
-    	ResultSet result = Database.getDatabase().getUser(login,pwd);
+		String request = "SELECT firstName,lastName,phone,mail,address,login,pwd FROM User where login='"+login+"' and pwd='"+pwd+"'";
+    	
+    	ResultSet result = db.selectRequest(request);
     	
     	//If the result is empty
     	if(!result.next())
