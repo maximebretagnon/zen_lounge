@@ -1,5 +1,4 @@
 package Data.Datas;
-import java.sql.SQLException;
 
 public abstract class UserData {
 	
@@ -76,6 +75,4 @@ public abstract class UserData {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
-	public abstract UserData getUser(String login, String pwd) throws SQLException;
 }

@@ -1,15 +1,13 @@
 package BL.Facades;
 
-import UI.Common.ViewIF;
 import BL.Managers.UserManager;
 
 public class UserFacade {
 	
-    public UserManager userManager;
-
+	private UserManager userManager;
     
-    public UserFacade(ViewIF viewIF){
-    	userManager = new UserManager(viewIF);
+    public UserFacade(){
+    	userManager = new UserManager();
     }
     
     public String handleLogin(String login, String pwd) {

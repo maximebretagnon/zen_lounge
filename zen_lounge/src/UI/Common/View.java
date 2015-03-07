@@ -1,14 +1,12 @@
 package UI.Common;
 
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.JTabbedPane;
-import javax.swing.JSplitPane;
 
-public abstract class View extends JPanel implements ViewIF {
+public abstract class View extends JPanel {
 	
     private String name;
     private JComponent panel;

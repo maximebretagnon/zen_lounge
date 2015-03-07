@@ -1,34 +1,27 @@
 package BL.Managers;
 
-import java.sql.SQLException;
-
-import BL.Others.Utilitary;
-import Data.Datas.MySQLUserData;
+import Data.Database;
 import Data.Datas.UserData;
-import UI.Common.ViewIF;
 
 public class UserManager {
 	
-    public UserData userData;
-
-    public ViewIF viewIF;
+	private Database db;
     
-    public UserManager(ViewIF viewIF){
-    	userData = null;
-    	this.viewIF = viewIF;
+    public UserManager(){
+    	db = Database.getDatabase();
     }
 
     public String handleLogin(String login, String pwd) {
     	
     	try {
-			userData = new MySQLUserData().getUser(login,pwd);
+			UserData userData = db.getUser(login,pwd);
 			
 			if(userData == null)
 				return "Informations incorrectes. Veuillez réessayer";
 			
 	    	System.out.println(pwd);
 		}
-    	catch (SQLException e)
+    	catch (Exception e)
     	{
 			return e.getMessage();
 		}

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Data.Datas.*;
+
 
 public class MySQLDatabase extends Database
 {	
@@ -15,6 +17,9 @@ public class MySQLDatabase extends Database
     private final String pwd = "pandacoding";
     
     private Connection connexion = null;
+    
+    ////ZenLounge informations////
+    private MySQLUserData userData;
         
     private MySQLDatabase(){
     	
@@ -54,7 +59,7 @@ public class MySQLDatabase extends Database
 	            /* Si une erreur survient lors de la fermeture, il suffit de l'ignorer. */
 	        }
     }
-    public ResultSet selectRequest(String request) {
+    private ResultSet selectRequest(String request) {
     	open();
     	
     	/* Exécution d'une requête de lecture */
@@ -70,7 +75,7 @@ public class MySQLDatabase extends Database
     	
     	return resultat;
     }
-    public int insertRequest(String request) {
+    private int insertRequest(String request) {
     	
     	int status = 0;
     	
@@ -88,5 +93,43 @@ public class MySQLDatabase extends Database
 			/* Gérer les éventuelles erreurs ici */
 		}
     	return status;
+    }
+
+    public UserData getUser(String login,String pwd) throws SQLException {
+    	if(userData != null && userData.getLogin().equals(login) && userData.getPwd().equals(pwd))
+    		return userData;
+    	
+		String request = "SELECT firstName,lastName,phone,mail,address,login,pwd FROM User where login='"+login+"' and pwd='"+pwd+"'";
+    	
+    	ResultSet result = selectRequest(request);
+    	
+    	try
+    	{
+        	//Empty result => Wrong informations
+			if(!result.next())
+				return null;
+			
+	    	//Ouverture de session
+	    	userData = new MySQLUserData();
+	    	
+	    	result.beforeFirst();
+	    	while ( result.next() ) {
+				userData.setFirstName(result.getString("firstName"));
+				userData.setLastName(result.getString("lastName"));
+				userData.setPhone(result.getString("phone"));
+				userData.setMail(result.getString("mail"));
+				userData.setAddress(result.getString("address"));
+				userData.setLogin(result.getString("login"));
+				userData.setPwd(result.getString("pwd"));
+			}
+		    /* On ferme le ResultSet */
+		    result.close();
+
+	    	return userData;
+		} catch (NullPointerException e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
+    	
     }
 }

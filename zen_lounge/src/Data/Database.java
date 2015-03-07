@@ -1,6 +1,6 @@
 package Data;
 
-import java.sql.ResultSet;
+import Data.Datas.*;
 
 public abstract class Database
 {
@@ -15,4 +15,7 @@ public abstract class Database
 	////Standard Database methods////
     public abstract void open();
     public abstract void close();
+    
+    ////ZenLounge methods////
+    public abstract UserData getUser(String login,String pwd) throws Exception;
 }
