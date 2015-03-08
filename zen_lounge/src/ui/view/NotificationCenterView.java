@@ -1,14 +1,15 @@
-package UI.Views;
+package ui.view;
 
-import UI.Common.View;
 import javax.swing.JTabbedPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
-import java.awt.FlowLayout;
+
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
+import ui.common.View;
 
 public class NotificationCenterView extends View {
 

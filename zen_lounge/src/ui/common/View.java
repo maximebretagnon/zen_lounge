@@ -1,4 +1,4 @@
-package UI.Common;
+package ui.common;
 
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -36,23 +36,28 @@ public abstract class View extends JPanel {
 
     //Hook for reloading components of the page
     public void reload() {}
+    
     //Default behaviour of an alert
     public void alert(String message) {
     	//System.out.println("Alert : "+message);
     	JOptionPane.showMessageDialog(Frame.getFrame(),message,"Alert",JOptionPane.WARNING_MESSAGE);
     }
+    
     //Default behaviour of a confirm
     public int confirm(String message) {
     	return JOptionPane.showConfirmDialog(Frame.getFrame(),message,"Confirmation",JOptionPane.YES_NO_OPTION);
     }
+    
     //Default behaviour of a prompt
     public String prompt(String message) {
     	return JOptionPane.showInputDialog(Frame.getFrame(),message,"Prompt",JOptionPane.QUESTION_MESSAGE);
     }
+    
     //Default behaviour of a log
     public void log(String message) {
     	System.out.println("Log : "+message);
     }
+    
     //Default behaviour of a log
     public void error(String message) {
     	System.err.println("Error : "+message);

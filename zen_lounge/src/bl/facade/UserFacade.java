@@ -1,6 +1,6 @@
-package BL.Facades;
+package bl.facade;
 
-import BL.Managers.UserManager;
+import bl.manager.UserManager;
 
 public class UserFacade {
 	

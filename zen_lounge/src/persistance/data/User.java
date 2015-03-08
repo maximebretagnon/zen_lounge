@@ -1,16 +1,16 @@
-package Data.Datas;
+package persistance.data;
 
-public abstract class UserData {
+public abstract class User {
 	
-	protected String firstName;
-	protected String lastName;
-	protected String phone;
-	protected String mail;
-	protected String address;
-	protected String login;
-	protected String pwd;
+	private String firstName;
+	private String lastName;
+	private String phone;
+	private String mail;
+	private String address;
+	private String login;
+	private String pwd;
 	
-    public UserData(){
+    public User(){
     	this.firstName="";
     	this.lastName="";
     	this.phone="";
@@ -19,6 +19,9 @@ public abstract class UserData {
     	this.login="";
     	this.pwd="";
     }
+    
+    public abstract String load(String login, String pwd);
+    public abstract String save();
 	
 	public String getFirstName() {
 		return firstName;

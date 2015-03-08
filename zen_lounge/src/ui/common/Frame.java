@@ -1,4 +1,4 @@
-package UI.Common;
+package ui.common;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;

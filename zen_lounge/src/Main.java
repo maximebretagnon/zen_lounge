@@ -1,15 +1,13 @@
-import Data.Database;
-import Data.MySQLDatabase;
-import UI.Common.Frame;
-import UI.Views.LoginView;
+import persistance.MySQLDatabase;
+import ui.common.Frame;
+import ui.view.LoginView;
 
 public class Main {
 	public static void main(String[] args) {
 			loadingScreen ls = new loadingScreen();
 			ls.setVisible(true);
 		
-			MySQLDatabase.setAsApplicationSGBD();
-			Database.getDatabase().open();		
+			MySQLDatabase.getInstance().open();
 			
 			LoginView loginView = new LoginView();
 			

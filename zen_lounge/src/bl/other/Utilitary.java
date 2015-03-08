@@ -1,4 +1,4 @@
-package BL.Others;
+package bl.other;
 
 import org.apache.commons.codec.digest.DigestUtils;
 

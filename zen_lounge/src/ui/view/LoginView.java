@@ -1,4 +1,4 @@
-package UI.Views;
+package ui.view;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,13 +12,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-import BL.Facades.UserFacade;
-import BL.Others.Utilitary;
-import UI.Common.Frame;
-import UI.Common.View;
-
 import javax.swing.SpringLayout;
+
+import bl.facade.UserFacade;
+import bl.other.Utilitary;
+import ui.common.Frame;
+import ui.common.View;
 
 public class LoginView extends View implements ActionListener, KeyListener{
 	
@@ -90,7 +89,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     	String pwd = Utilitary.hash(pwdField.getPassword());
     	pwdField.setText("");
     	String error = userFacade.handleLogin(loginField.getText(),pwd);
-    	if(error == null){
+    	if(error == null) {
     		Frame.getFrame().setView(new NotificationCenterView("Zen Lounge - Notification Center"));
     		Frame.getFrame().revalidate();
         	log("Login succeeded. Show Profile view");
