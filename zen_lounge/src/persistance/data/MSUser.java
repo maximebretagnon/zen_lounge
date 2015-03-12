@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 import persistance.MySQLDatabase;
 
-public class MySQLUser extends User{
+public class MSUser extends User{
 		
-    public MySQLUser(){
+    public MSUser(){
     	super();
     }
 
