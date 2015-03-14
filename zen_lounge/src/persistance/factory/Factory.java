@@ -1,6 +1,6 @@
 package persistance.factory;
 
-import persistance.data.User;
+import persistance.data.generic.User;
 
 public interface Factory
 {

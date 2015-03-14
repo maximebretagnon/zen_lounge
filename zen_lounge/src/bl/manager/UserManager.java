@@ -1,6 +1,6 @@
 package bl.manager;
 
-import persistance.data.User;
+import persistance.data.generic.User;
 import persistance.factory.Factory;
 import persistance.factory.MySQLFactory;
 

@@ -1,7 +1,7 @@
 package persistance.factory;
 
-import persistance.data.MSUser;
-import persistance.data.User;
+import persistance.data.generic.User;
+import persistance.data.mysql.MSUser;
 
 public class MySQLFactory implements Factory
 {

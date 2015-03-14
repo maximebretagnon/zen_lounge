@@ -1,6 +1,7 @@
-package persistance.data;
+package persistance.data.mysql;
 
 import persistance.MySQLDatabase;
+import persistance.data.generic.Event;
 
 public class MSEvent implements Event {
     public MySQLDatabase mySQLDatabase;

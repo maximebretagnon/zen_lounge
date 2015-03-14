@@ -1,9 +1,10 @@
-package persistance.data;
+package persistance.data.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import persistance.MySQLDatabase;
+import persistance.data.generic.User;
 
 public class MSUser extends User{
 		

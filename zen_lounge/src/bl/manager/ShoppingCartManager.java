@@ -1,8 +1,8 @@
 package bl.manager;
 
 import persistance.factory.Factory;
-import persistance.data.ProductLineList;
-import persistance.data.ShoppingCart;
+import persistance.data.generic.ProductLineList;
+import persistance.data.generic.ShoppingCart;
 
 public class ShoppingCartManager {
     public Factory factory;

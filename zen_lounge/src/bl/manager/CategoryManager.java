@@ -1,7 +1,7 @@
 package bl.manager;
 
 import persistance.factory.Factory;
-import persistance.data.ProductCategory;
+import persistance.data.generic.ProductCategory;
 
 public class CategoryManager {
     public ProductCategory productCategory;

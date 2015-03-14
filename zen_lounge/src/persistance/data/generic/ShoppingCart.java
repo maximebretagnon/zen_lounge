@@ -1,4 +1,4 @@
-package persistance.data;
+package persistance.data.generic;
 
 
 public abstract class ShoppingCart {

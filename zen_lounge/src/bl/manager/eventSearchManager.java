@@ -1,7 +1,7 @@
 package bl.manager;
 
 import persistance.factory.Factory;
-import persistance.data.Event;
+import persistance.data.generic.Event;
 
 public class eventSearchManager {
     public Factory database;

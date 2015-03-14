@@ -1,8 +1,8 @@
 package bl.manager;
 
 import persistance.factory.Factory;
-import persistance.data.Event;
-import persistance.data.Inscription;
+import persistance.data.generic.Event;
+import persistance.data.generic.Inscription;
 
 public class EventManager {
     public Factory factory;
