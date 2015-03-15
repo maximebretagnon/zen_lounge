@@ -19,9 +19,9 @@ public class MSUser extends User{
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	
-        //Empty result => Wrong informations
 		try
 		{
+	        //Empty result => Wrong informations
 			if(!result.next())
 				return "Informations incorrectes. Veuillez réessayer";
 			
@@ -32,7 +32,7 @@ public class MSUser extends User{
 				super.setLastName(result.getString("lastName"));
 				super.setPhone(result.getString("phone"));
 				super.setMail(result.getString("mail"));
-				super.setAddress(result.getString("address"));
+				super.setAdress(result.getString("address"));
 				super.setLogin(result.getString("login"));
 				super.setPwd(result.getString("pwd"));
 			}
@@ -53,6 +53,42 @@ public class MSUser extends User{
 
 	@Override
 	public String save() {
-		return null;
+		String request = "insert into User values ("
+							+"'"+getFirstName()+"',"
+							+"'"+getLastName()+"',"
+							+"'"+getPhone()+"',"
+							+"'"+getMail()+"',"
+							+"'"+getAddress()+"',"
+							+"'"+getLogin()+"',"
+							+"'"+getPwd()+"'"
+							+ ")";
+    	
+    	int result = MySQLDatabase.getInstance().insertRequest(request);
+    	return null;
+	}
+
+	@Override
+	public String check(String login) {
+		
+		String request = "SELECT login FROM User where login='"+login+"'";
+    	
+    	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
+    	
+		try
+		{
+	        //Empty result => The user is not registered
+			if(!result.next())
+				return "User not registered";
+			else
+				return "User registered";
+		}
+		catch (SQLException e)
+		{
+			return e.getMessage();
+		}
+		catch (NullPointerException e)
+		{
+			return e.getMessage();
+		}
 	}
 }

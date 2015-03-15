@@ -80,14 +80,15 @@ public class MySQLDatabase
     	if (connexion == null)
     		open();
     	
-    	/* Exécution d'une requête de lecture */
+    	/* Exécution d'une requête d'écriture */
     	Statement statement = null;
 		
     	try {
 			statement = connexion.createStatement();
 			status = statement.executeUpdate(request);
 		} catch (SQLException e1) {
-			/* Gérer les éventuelles erreurs ici */
+			System.err.println(e1.getMessage());
+			status = -1;
 		}
     	return status;
     }

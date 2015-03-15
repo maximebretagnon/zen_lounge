@@ -29,7 +29,8 @@ public abstract class View extends JPanel {
         	tabbedPane.addTab("New tab", null, panel, null);
     	}
 
-    	
+
+
     	
 
     }
@@ -44,8 +45,9 @@ public abstract class View extends JPanel {
     }
     
     //Default behaviour of a confirm
-    public int confirm(String message) {
-    	return JOptionPane.showConfirmDialog(Frame.getFrame(),message,"Confirmation",JOptionPane.YES_NO_OPTION);
+    public boolean confirm(String message) {
+    	int result = JOptionPane.showConfirmDialog(Frame.getFrame(),message,"Confirmation",JOptionPane.YES_NO_OPTION);
+    	return result == 0;
     }
     
     //Default behaviour of a prompt

@@ -103,6 +103,8 @@ public class LoginView extends View implements ActionListener, KeyListener{
     private void subscribe() {
     	//Frame.getFrame().setView(new SubscribeView());
     	log("Show subscribe view");
+    	Frame.getFrame().setView(new SubscribeView());
+		Frame.getFrame().revalidate();
     }
 
 	@Override

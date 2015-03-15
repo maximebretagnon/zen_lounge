@@ -8,7 +8,7 @@ public class Main {
 			ls.setVisible(true);
 		
 			MySQLDatabase.getInstance().open();
-			
+
 			LoginView loginView = new LoginView();
 			
 			Frame f = Frame.getFrame();

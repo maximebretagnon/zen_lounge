@@ -20,6 +20,7 @@ public abstract class User {
     	this.pwd="";
     }
     
+    public abstract String check(String login);
     public abstract String load(String login, String pwd);
     public abstract String save();
 	
@@ -59,7 +60,7 @@ public abstract class User {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAdress(String address) {
 		this.address = address;
 	}
 
