@@ -24,7 +24,7 @@ import javax.swing.JSpinner;
 
 public class ShoppingCartView extends View{
     public ShoppingCartView(String name, boolean showMenu) {
-		super(name, showMenu);
+		super(name);
 		SpringLayout springLayout = (SpringLayout) getLayout();
 		
 		JPanel panel = new JPanel();
