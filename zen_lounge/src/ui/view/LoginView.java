@@ -36,7 +36,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     private JLabel errorMessage;
     
     public LoginView(){
-    	super("ZenLounge - Login",false);
+    	super("ZenLounge - Login");
     	
     	userFacade = new UserFacade();
 
@@ -90,7 +90,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     	pwdField.setText("");
     	String error = userFacade.handleLogin(loginField.getText(),pwd);
     	if(error == null) {
-    		Frame.getFrame().setView(new NotificationCenterView("Zen Lounge - Notification Center"));
+    		Frame.getFrame().setView(new NotificationCenterView(),true);
     		Frame.getFrame().revalidate();
         	log("Login succeeded. Show Profile view");
     	}
@@ -103,7 +103,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     private void subscribe() {
     	//Frame.getFrame().setView(new SubscribeView());
     	log("Show subscribe view");
-    	Frame.getFrame().setView(new SubscribeView());
+    	Frame.getFrame().setView(new SubscribeView(),false);
 		Frame.getFrame().revalidate();
     }
 

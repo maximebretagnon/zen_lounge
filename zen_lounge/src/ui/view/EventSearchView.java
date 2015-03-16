@@ -5,7 +5,7 @@ import bl.facade.EventFacade;
 
 public class EventSearchView extends View{
     public EventSearchView(String name, boolean showMenu) {
-		super(name, showMenu);
+		super(name);
 		// TODO Auto-generated constructor stub
 	}
 

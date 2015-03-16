@@ -53,5 +53,4 @@ public class loadingScreen extends JFrame {
 		contentPane.add(lblZenloungeIsLoading, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 	}
-
 }
