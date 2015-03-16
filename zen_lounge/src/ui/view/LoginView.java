@@ -77,6 +77,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     	this.add(loginButton);
     	this.add(subscribeButton);
 
+    	//A enlever//
     	loginField.setText("test");
     	pwdField.setText("test");
     	

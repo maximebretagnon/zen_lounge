@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.SpringLayout;
 
+import ui.view.MemberProfileView;
 import ui.view.NotificationCenterView;
+import ui.view.ShopView;
 import ui.view.ShoppingCartView;
 
 public class Frame extends JFrame {
@@ -35,8 +37,16 @@ public class Frame extends JFrame {
     	springLayout.putConstraint(SpringLayout.EAST, tabbedPane, 714, SpringLayout.WEST, this);
     	
     	this.add(tabbedPane);
-    	((JTabbedPane) tabbedPane).addTab("Notification Center", null, new NotificationCenterView(), null);
-    	((JTabbedPane) tabbedPane).addTab("Shopping Cart", null, new ShoppingCartView(), null);
+    	NotificationCenterView notif = new NotificationCenterView();
+    	notif.setNotifications(5);
+    	((JTabbedPane) tabbedPane).addTab(notif.getName(), null, notif, null);
+    	View profile = new MemberProfileView();
+    	
+    	((JTabbedPane) tabbedPane).addTab(profile.getName(), null, profile, null);
+    	View shop = new ShopView();
+    	((JTabbedPane) tabbedPane).addTab(shop.getName(), null, shop, null);
+    	View shoppingCart = new ShoppingCartView();
+    	((JTabbedPane) tabbedPane).addTab(shoppingCart.getName(), null, shoppingCart, null);
 	}
 	
 	public static Frame getFrame(){
