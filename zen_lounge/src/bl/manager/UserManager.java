@@ -3,6 +3,7 @@ package bl.manager;
 import persistance.data.generic.User;
 import persistance.factory.Factory;
 import persistance.factory.MySQLFactory;
+import persistance.Session;
 
 public class UserManager {
 	
@@ -15,7 +16,10 @@ public class UserManager {
 
     public String handleLogin(String login, String pwd) {
     	user = factory.makeUser();
-    	return user.load(login, pwd);
+    	String loadResult = user.load(login, pwd);
+    	if(loadResult == null)
+    		Session.setUserForSession(user);
+    	return loadResult;
     }
 
 	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String adress, boolean isSpeaker, String job) {
