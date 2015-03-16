@@ -24,8 +24,8 @@ import javax.swing.JSpinner;
 import javax.swing.JLabel;
 
 public class ShoppingCartView extends View{
-    public ShoppingCartView(String name, boolean showMenu) {
-		super(name);
+    public ShoppingCartView() {
+		super("Shopping Cart");
 		SpringLayout springLayout = (SpringLayout) getLayout();
 		
 		JPanel panel = new JPanel();
@@ -142,14 +142,6 @@ public class ShoppingCartView extends View{
 		lblTotal.setFont(new Font("Tahoma", Font.BOLD, 15));
 		add(lblTotal);
     }
-		
-    public ShoppingCartView() {
-		super("Shopping Cart");
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		add(lblNewLabel);
-		// TODO Auto-generated constructor stub
-	}
 
 	public ShopFacade shopFacade;
 }

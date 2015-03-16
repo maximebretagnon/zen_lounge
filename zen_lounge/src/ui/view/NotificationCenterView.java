@@ -12,6 +12,6 @@ public class NotificationCenterView extends View {
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setBounds(112, 129, 97, 25);
-		add(btnNewButton);		
+		add(btnNewButton);
 	}
 }

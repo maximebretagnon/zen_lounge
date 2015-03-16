@@ -4,8 +4,8 @@ import ui.common.View;
 import bl.facade.ShopFacade;
 
 public class ShopView extends View{
-    public ShopView(String name, boolean showMenu) {
-		super(name);
+    public ShopView() {
+		super("Shop");
 		// TODO Auto-generated constructor stub
 	}
 

@@ -5,8 +5,8 @@ import ui.common.View;
 
 public class EventEnrolmentView extends View {
     
-	public EventEnrolmentView(String name, boolean showMenu) {
-		super(name);
+	public EventEnrolmentView() {
+		super("Event enrolment");
 		// TODO Auto-generated constructor stub
 	}
 

@@ -6,8 +6,9 @@ import ui.common.View;
 import bl.facade.EventFacade;
 
 public class EventDetailsView extends View{
-    public EventDetailsView(String name, boolean showMenu) {
-		super(name);
+	
+    public EventDetailsView() {
+		super("Event Details");
 		// TODO Auto-generated constructor stub
 	}
 
