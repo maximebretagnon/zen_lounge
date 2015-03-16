@@ -5,7 +5,7 @@ import bl.facade.UserFacade;
 
 public class MemberProfileView extends View{
     public MemberProfileView(String name, boolean showMenu) {
-		super(name, showMenu);
+		super(name);
 		// TODO Auto-generated constructor stub
 	}
 

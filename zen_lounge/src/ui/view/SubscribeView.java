@@ -16,13 +16,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Arrays;
 
 public class SubscribeView extends View implements ActionListener {
@@ -48,10 +44,11 @@ public class SubscribeView extends View implements ActionListener {
 	private JPasswordField pwd2Field;
 	
     public SubscribeView() {
-		super("Subscribe", false);
+		super("Subscribe");
 		userFacade = new UserFacade();
 		
-		SpringLayout springLayout = (SpringLayout) getLayout();
+		SpringLayout springLayout = new SpringLayout();
+		this.setLayout(springLayout);
 		
 		JLabel welcomeLb = new JLabel("Welcome to ZenLounge");
 		springLayout.putConstraint(SpringLayout.NORTH, welcomeLb, 21, SpringLayout.NORTH, this);
@@ -284,16 +281,16 @@ public class SubscribeView extends View implements ActionListener {
     		else if (confirm("Registration completed ! Would you like to automatically log in ?")) {
     			if(userFacade.handleLogin(loginField.getText(),Utilitary.hash(pwd1Field.getPassword())) != null) {
     				alert("Unknown error - Please log in manually");
-            		Frame.getFrame().setView(new LoginView());
+            		Frame.getFrame().setView(new LoginView(),false);
             		Frame.getFrame().revalidate();
     			}
     			else {
-	        		Frame.getFrame().setView(new NotificationCenterView("Zen Lounge - Notification Center"));
+	        		Frame.getFrame().setView(new NotificationCenterView(),true);
 	        		Frame.getFrame().revalidate();
     			}    			
     		}
     		else {
-        		Frame.getFrame().setView(new LoginView());
+        		Frame.getFrame().setView(new LoginView(),false);
         		Frame.getFrame().revalidate();
     		}
     	}
@@ -309,7 +306,7 @@ public class SubscribeView extends View implements ActionListener {
 			jobField.setVisible(speakerChk.isSelected());
 		}
 		else if(e.getActionCommand().equals("Back")){
-			Frame.getFrame().setView(new LoginView());
+			Frame.getFrame().setView(new LoginView(),false);
 			Frame.getFrame().revalidate();
 		}
 	}

@@ -12,7 +12,7 @@ public class Main {
 			LoginView loginView = new LoginView();
 			
 			Frame f = Frame.getFrame();
-			f.setView(loginView);
+			f.setView(loginView,false);
 
 			ls.dispose();
 			f.setVisible(true);
