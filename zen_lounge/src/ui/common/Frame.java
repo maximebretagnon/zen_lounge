@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.SpringLayout;
 
+import ui.view.EventInscriptionView;
 import ui.view.MemberProfileView;
 import ui.view.NotificationCenterView;
 import ui.view.ShopView;
@@ -47,6 +48,8 @@ public class Frame extends JFrame {
     	((JTabbedPane) tabbedPane).addTab(shop.getName(), null, shop, null);
     	View shoppingCart = new ShoppingCartView();
     	((JTabbedPane) tabbedPane).addTab(shoppingCart.getName(), null, shoppingCart, null);
+    	View eventInscription = new EventInscriptionView();
+    	((JTabbedPane) tabbedPane).addTab(eventInscription.getName(), null,eventInscription, null);
 	}
 	
 	public static Frame getFrame(){

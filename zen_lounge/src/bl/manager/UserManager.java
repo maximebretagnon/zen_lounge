@@ -44,4 +44,9 @@ public class UserManager {
 		else
 			return "An error has occured. Please retry";
 	}
+
+	public String getUserID() 
+	{
+		return Session.user().getLogin();
+	}
 }

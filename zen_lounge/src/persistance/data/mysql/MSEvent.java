@@ -1,5 +1,7 @@
 package persistance.data.mysql;
 
+import javax.swing.JComboBox;
+
 import persistance.MySQLDatabase;
 import persistance.data.generic.Event;
 

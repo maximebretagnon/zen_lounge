@@ -20,4 +20,9 @@ public abstract class Inscription {
     public void load() {
     }
 
+	public void save(String userID, String chosenEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

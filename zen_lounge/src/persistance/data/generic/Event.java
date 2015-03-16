@@ -1,5 +1,7 @@
 package persistance.data.generic;
 
+import javax.swing.JComboBox;
+
 
 public interface Event {
     void save();
@@ -13,5 +15,6 @@ public interface Event {
     int getPrice();
 
     void setPrice(int value);
+
 
 }

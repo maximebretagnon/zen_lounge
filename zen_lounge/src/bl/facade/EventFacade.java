@@ -1,11 +1,24 @@
 package bl.facade;
 
-import bl.manager.eventSearchManager;
+import bl.manager.EventManager;
+import bl.manager.UserManager;
 
-public class EventFacade {
-    public eventSearchManager userManager;
+public class EventFacade 
+{
+    public EventManager eventManager;
+    public UserManager userManager;
 
-    public void handleEventSearch() {
+    public EventFacade()
+    {
+    	userManager = new UserManager();
+    	eventManager = new EventManager();
     }
+
+	public String handleEventInscription(String chosenEvent) 
+	{
+		String userID = userManager.getUserID();
+		eventManager.handleEventInscription(userID, chosenEvent);
+		return userID;
+	}
 
 }

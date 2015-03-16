@@ -12,6 +12,12 @@ public class EventDetailsView extends View{
 		// TODO Auto-generated constructor stub
 	}
 
+	public EventDetailsView(String chosenEvent) {
+		this();
+		
+		// TODO Auto-generated constructor stub
+	}
+
 	public String nameLabel;
 
     public int priceLabel;

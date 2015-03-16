@@ -12,7 +12,11 @@ public abstract class View extends JPanel {
     	this.name = name;
     }
 
-    //Hook for reloading components of the page
+    public View(String name2, boolean showMenu) {
+		// TODO Auto-generated constructor stub
+	}
+
+	//Hook for reloading components of the page
     public void reload() {}
     
     //Default behaviour of an alert
