@@ -26,7 +26,8 @@ import javax.swing.JLabel;
 public class ShoppingCartView extends View{
     public ShoppingCartView() {
 		super("Shopping Cart");
-		SpringLayout springLayout = (SpringLayout) getLayout();
+		SpringLayout springLayout = new SpringLayout();
+		setLayout(springLayout);
 		
 		JPanel panel = new JPanel();
 		springLayout.putConstraint(SpringLayout.NORTH, panel, 99, SpringLayout.NORTH, this);

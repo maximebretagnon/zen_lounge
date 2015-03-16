@@ -76,6 +76,9 @@ public class LoginView extends View implements ActionListener, KeyListener{
     	this.add(pwdField);
     	this.add(loginButton);
     	this.add(subscribeButton);
+
+    	loginField.setText("test");
+    	pwdField.setText("test");
     	
     	errorMessage = new JLabel();
     	springLayout.putConstraint(SpringLayout.SOUTH, errorMessage, -29, SpringLayout.NORTH, loginField);
