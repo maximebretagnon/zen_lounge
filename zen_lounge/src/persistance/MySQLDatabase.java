@@ -87,7 +87,8 @@ public class MySQLDatabase
 			statement = connexion.createStatement();
 			status = statement.executeUpdate(request);
 		} catch (SQLException e1) {
-			System.err.println(e1.getMessage());
+			System.err.println(request);
+			e1.printStackTrace();
 			status = -1;
 		}
     	return status;

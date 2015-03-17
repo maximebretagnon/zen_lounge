@@ -1,16 +1,14 @@
 package persistance.factory;
 
-import persistance.data.generic.Event;
-import persistance.data.generic.EventList;
-import persistance.data.generic.Inscription;
-import persistance.data.generic.User;
-import persistance.data.mysql.MSEvent;
-import persistance.data.mysql.MSEventList;
-import persistance.data.mysql.MSInscription;
-import persistance.data.mysql.MSUser;
+import persistance.data.generic.*;
+import persistance.data.mysql.*;
 
-public class MySQLFactory implements Factory
+public class MySQLFactory extends Factory
 {
+	protected MySQLFactory(){
+		
+	}
+	
 	@Override
 	public User makeUser() {
     	return new MSUser();
@@ -32,5 +30,11 @@ public class MySQLFactory implements Factory
 	public EventList makeEventList() {
 		// TODO Auto-generated method stub
 		return new MSEventList();
+	}
+
+	@Override
+	public Speaker makeSpeaker() {
+		// TODO Auto-generated method stub
+		return new MSSpeaker();
 	}	
 }

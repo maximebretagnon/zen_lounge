@@ -3,8 +3,6 @@ package bl.manager;
 import javax.swing.JComboBox;
 
 import persistance.factory.Factory;
-import persistance.factory.MySQLFactory;
-import persistance.data.generic.Event;
 import persistance.data.generic.EventList;
 import persistance.data.generic.Inscription;
 
@@ -17,7 +15,7 @@ public class EventManager
     
     public EventManager()
     {
-    	factory = new MySQLFactory();
+    	factory = Factory.getInstance();
     }
 
     public void handleEventSearch() 

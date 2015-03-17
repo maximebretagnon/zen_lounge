@@ -2,10 +2,9 @@ package persistance.data.generic;
 
 
 public abstract class Speaker {
+	
     private String job;
-
     private String shortDescription;
-
     private String longDescription;
 
     String getLongDescription() {
@@ -13,35 +12,33 @@ public abstract class Speaker {
         return this.longDescription;
     }
 
-    void setLongDescription(String value) {
+    public  void setLongDescription(String value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.longDescription = value;
     }
 
-    String getShortDescription() {
+    public String getShortDescription() {
         // Automatically generated method. Please delete this comment before entering specific code.
         return this.shortDescription;
     }
 
-    void setShortDescription(String value) {
+    public void setShortDescription(String value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.shortDescription = value;
     }
 
-    String getJob() {
+    public String getJob() {
         // Automatically generated method. Please delete this comment before entering specific code.
         return this.job;
     }
 
-    void setJob(String value) {
+    public  void setJob(String value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.job = value;
     }
 
-    public void save() {
-    }
+    public abstract String save(String login);
 
-    public void load() {
-    }
+    public abstract void load(String login);
 
 }
