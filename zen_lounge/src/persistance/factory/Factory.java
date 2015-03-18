@@ -21,4 +21,10 @@ public abstract class Factory
 	public abstract EventList makeEventList();
 
 	public abstract Speaker makeSpeaker();
+
+	public abstract Notification makeNotification();
+
+	public abstract AdministratorList makeAdministratorList();
+
+	public abstract Administrator makeAdministrator();
 }

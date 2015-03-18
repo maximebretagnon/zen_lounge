@@ -1,5 +1,10 @@
 package bl.facade;
 
+import java.util.List;
+
+import persistance.Session;
+import bl.manager.AdministratorManager;
+import bl.manager.NotificationManager;
 import bl.manager.SpeakerManager;
 import bl.manager.UserManager;
 
@@ -7,10 +12,14 @@ public class UserFacade {
 
 	private UserManager userManager;
 	private SpeakerManager speakerManager;
+	private AdministratorManager administratorManager;
+	private NotificationManager notificationManager;
     
     public UserFacade(){
     	userManager = new UserManager();
     	speakerManager = new SpeakerManager();
+    	notificationManager = new NotificationManager();
+    	administratorManager = new AdministratorManager();
     }
     
     public String handleLogin(String login, String pwd) {
@@ -23,5 +32,11 @@ public class UserFacade {
 			errorMessage = speakerManager.handleSubscribe(login,job);
 		}
 		return errorMessage;
+	}
+
+	public String handleActivityCatAsk(String activityCategory) {
+		String userLogin = Session.user().getLogin();
+		List<String> administratorLogins = administratorManager.getAllAdministratorID();
+		return notificationManager.handleActivityCatAsk(userLogin,activityCategory,administratorLogins);
 	}
 }

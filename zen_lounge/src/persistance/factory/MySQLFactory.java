@@ -16,25 +16,36 @@ public class MySQLFactory extends Factory
 
 	@Override
 	public Inscription makeInscription() {
-		// TODO Auto-generated method stub
 		return new MSInscription();
 	}
 
 	@Override
 	public Event makeEvent() {
-		// TODO Auto-generated method stub
 		return new MSEvent();
 	}
 
 	@Override
 	public EventList makeEventList() {
-		// TODO Auto-generated method stub
 		return new MSEventList();
 	}
 
 	@Override
 	public Speaker makeSpeaker() {
-		// TODO Auto-generated method stub
 		return new MSSpeaker();
 	}	
+
+	@Override
+	public Notification makeNotification() {
+		return new MSNotification();
+	}
+
+	@Override
+	public AdministratorList makeAdministratorList() {
+		return new MSAdministratorList();
+	}
+
+	@Override
+	public Administrator makeAdministrator() {
+		return new MSAdministrator();
+	}
 }
