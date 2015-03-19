@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import persistance.MySQLDatabase;
 import persistance.data.generic.Administrator;
 import persistance.data.generic.AdministratorList;
-import persistance.factory.Factory;
 
 public class MSAdministratorList extends AdministratorList {
 
@@ -24,10 +23,9 @@ public class MSAdministratorList extends AdministratorList {
 			
 	    	//Ouverture de session	    	
 	    	result.beforeFirst();
-	    	Factory f = Factory.getInstance();
 	    	Administrator admin;
 	    	while ( result.next() ) {
-	    		admin = f.makeAdministrator();
+	    		admin = new MSAdministrator();
 	    		admin.setUser(result.getString("user"));
 				super.add(admin);
 			}
