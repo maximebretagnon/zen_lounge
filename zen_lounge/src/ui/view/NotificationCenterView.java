@@ -2,74 +2,85 @@ package ui.view;
 
 import javax.swing.JButton;
 
+import ui.common.VerticalLayout;
 import ui.common.View;
+
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.SpringLayout;
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+
 import java.awt.GridLayout;
 
-public class NotificationCenterView extends View {
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 
-	private JPanel panel;
+public class NotificationCenterView extends View{
+
+	private JLabel titleLabel;
+	
+	private JPanel listPanel;
+	
+	private JPanel makeCell(String text){
+		JPanel cell = new JPanel();
+		
+		//La cellule est composée de 4 éléments
+		cell.setLayout(new GridLayout(0, 4, 0, 0));
+				
+		JLabel lblLabel = new JLabel("Label");
+		lblLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		cell.add(lblLabel);
+		
+		JTextField txtText = new JTextField();
+		txtText.setHorizontalAlignment(SwingConstants.CENTER);
+		txtText.setText(text);
+		cell.add(txtText);
+		txtText.setColumns(10);
+		
+		JCheckBox chckbxCheck = new JCheckBox("Check");
+		cell.add(chckbxCheck);
+		
+		JButton btnPress = new JButton("Press");
+		cell.add(btnPress);
+		
+		return cell;
+	}
 	
 	public NotificationCenterView() {
 		super("Notification Center");
+		
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		
-		JLabel newNotifLb = new JLabel("You have 4 new notifications");
-		springLayout.putConstraint(SpringLayout.NORTH, newNotifLb, 29, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, newNotifLb, 167, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, newNotifLb, 43, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, newNotifLb, -168, SpringLayout.EAST, this);
-		newNotifLb.setHorizontalAlignment(SwingConstants.CENTER);
-		newNotifLb.setFont(new Font("Tahoma", Font.BOLD, 12));
-		add(newNotifLb);
+		titleLabel = new JLabel("Notifications");
+		springLayout.putConstraint(SpringLayout.NORTH, titleLabel, 0, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, titleLabel, 0, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, titleLabel, 597, SpringLayout.WEST, this);
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		add(titleLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		springLayout.putConstraint(SpringLayout.NORTH, scrollPane, 25, SpringLayout.SOUTH, newNotifLb);
-		springLayout.putConstraint(SpringLayout.WEST, scrollPane, 73, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, scrollPane, -68, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -74, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, scrollPane, 92, SpringLayout.SOUTH, titleLabel);
+		springLayout.putConstraint(SpringLayout.WEST, scrollPane, 107, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, scrollPane, -106, SpringLayout.SOUTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -108, SpringLayout.EAST, this);
 		add(scrollPane);
 		
-		panel = new JPanel();
-		scrollPane.setRowHeaderView(panel);
+		listPanel = new JPanel();
+		scrollPane.setViewportView(listPanel);
+		listPanel.setLayout(new VerticalLayout());
 
-		panel.setLayout(new GridLayout(22, 3, 0, 0));
-
-		panel.add(new JLabel("Message"));
-		panel.add(new JLabel("By"));
-		panel.add(new JLabel("Status"));
-		
-		for(int i = 0 ; i < 21 ; i++){
-			panel.add(new JLabel("Message N°"+(i+1)));
-			panel.add(new JLabel("By N°"+(i+1)));
-			panel.add(new JLabel("Status N°"+(i+1)));
-		}
+		//Enlever le commentaire suivant pour éditer avec WindowsBuilder l'apparence de la cellule
+		//listPanel.add(makeCell("OK"));
+				
+		setNotifications(20);
 	}
 	
 	public void setNotifications(int nbNotif) {
-
-		panel.setLayout(new GridLayout(nbNotif+1, 3, 0, 0));
-
-		panel.add(new JLabel("Message"));
-		panel.add(new JLabel("By"));
-		panel.add(new JLabel("Status"));
-		
+		titleLabel.setText("Vous avez "+nbNotif+" nouvelles notifications");
 		for(int i = 0 ; i < nbNotif ; i++){
-			panel.add(new JLabel("Message N°"+(i+1)));
-			panel.add(new JLabel("By N°"+(i+1)));
-			panel.add(new JLabel("Status N°"+(i+1)));
+			listPanel.add(makeCell("Notification N° "+(i+1)));
 		}
 	}
 }

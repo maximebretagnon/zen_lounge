@@ -39,11 +39,10 @@ public class Frame extends JFrame {
     	springLayout.putConstraint(SpringLayout.EAST, tabbedPane, 714, SpringLayout.WEST, this);
     	
     	this.add(tabbedPane);
-    	NotificationCenterView notif = new NotificationCenterView();
-    	notif.setNotifications(5);
+    	
+    	View notif = new NotificationCenterView();
     	((JTabbedPane) tabbedPane).addTab(notif.getName(), null, notif, null);
     	View profile = new MemberProfileView();
-    	
     	((JTabbedPane) tabbedPane).addTab(profile.getName(), null, profile, null);
     	View shop = new ShopView();
     	((JTabbedPane) tabbedPane).addTab(shop.getName(), null, shop, null);

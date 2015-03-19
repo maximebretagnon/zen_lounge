@@ -96,7 +96,6 @@ public class LoginView extends View implements ActionListener, KeyListener{
     	if(error == null) {
     		Frame.getFrame().setView(new NotificationCenterView(),true);
     		Frame.getFrame().revalidate();
-        	log("Login succeeded. Show Profile view");
     	}
     	else {
     		this.errorMessage.setText(error);
